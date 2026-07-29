@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)file:///C:/Users/DELL/Desktop/portfolio.html -->
+<html lang="en" class="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huzaifa – SaaS Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./assets/css2" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;color-scheme:dark}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:oklch(0.129 0.042 264.695);color:oklch(0.984 0.003 247.858);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    .section{padding:96px 0}
+
+    header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;background:oklch(0.129 0.042 264.695/.8);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid oklch(1 0 0/.1)}
+    header .container{display:flex;justify-content:space-between;align-items:center;height:72px}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;font-weight:700;font-size:1.125rem;letter-spacing:-.5px}
+    .logo-img{width:36px;height:36px;border-radius:50%;background:oklch(0.279 0.041 260.031);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:oklch(0.984 0.003 247.858);overflow:hidden}
+    .logo-img img{width:100%;height:100%;object-fit:cover}
+    .logo span span{color:oklch(0.704 0.04 256.788)}
+    nav{display:flex;align-items:center;gap:32px}
+    nav a{color:oklch(0.704 0.04 256.788);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+    nav a:hover{color:oklch(0.984 0.003 247.858)}
+    .nav-cta{background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755)!important;border-radius:9999px;padding:10px 24px;font-weight:600;transition:transform .3s!important}
+    .nav-cta:hover{transform:scale(1.05);color:oklch(0.208 0.042 265.755)!important}
+
+    .hero{position:relative;overflow:hidden;padding:140px 0 80px}
+    .hero .container{position:relative}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid oklch(1 0 0/.1);border-radius:9999px;padding:6px 16px;font-size:.75rem;font-weight:500;color:oklch(0.704 0.04 256.788);margin-bottom:40px;opacity:0;animation:fadeIn .6s .1s forwards}
+    .hero-badge .ping{position:relative;width:12px;height:12px;display:flex;align-items:center;justify-content:center}
+    .hero-badge .ping span{position:absolute;width:6px;height:6px;border-radius:50%;background:oklch(0.984 0.003 247.858)}
+    .hero-badge .ping span:first-child{width:100%;height:100%;opacity:.3;animation:ping 1.5s ease-in-out infinite}
+    @keyframes ping{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.8);opacity:0}}
+    .hero-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.3em;color:oklch(0.704 0.04 256.788);margin-bottom:24px;opacity:0;animation:fadeUp .6s .15s forwards}
+    .hero-split{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+    .hero-h1{font-size:clamp(2.5rem,7vw,7rem);font-weight:900;text-transform:uppercase;line-height:.85;letter-spacing:-.02em;opacity:0;animation:fadeUp .6s .2s forwards}
+    .letter{display:inline-block;transition:transform .2s cubic-bezier(.34,1.56,.64,1),color .2s;cursor:default}
+    .letter:hover{transform:translateY(-8px);color:oklch(0.984 0.003 247.858)}
+    .skill-item:hover{color:oklch(0.984 0.003 247.858);transform:translateY(-4px)}
+    .skill-highlight:hover{color:oklch(0.984 0.003 247.858);transform:translateY(-4px)}
+    .hero-h1.right{text-align:right}
+    .hero-portrait{width:220px;height:280px;border-radius:32px;overflow:hidden;border:1px solid oklch(1 0 0/.1);background:oklch(0.279 0.041 260.031);opacity:0;animation:fadeUp .6s .3s forwards,float 6s ease-in-out infinite;animation-fill-mode:forwards}
+    .hero-portrait img,.hero-portrait .placeholder{width:100%;height:100%;object-fit:cover;display:flex;align-items:center;justify-content:center;color:oklch(0.704 0.04 256.788);font-size:.8rem}
+    .hero-portrait .placeholder{background:linear-gradient(135deg,oklch(0.279 0.041 260.031),oklch(0.208 0.042 265.755))}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @media(min-width:768px){.hero-portrait{width:320px;height:420px}}
+    .hero-desc{margin-top:48px;text-align:center;max-width:600px;margin-left:auto;margin-right:auto;color:oklch(0.704 0.04 256.788);font-size:1.0625rem;opacity:0;animation:fadeUp .6s .4s forwards}
+    .hero-desc em{font-family:'Instrument Serif',serif;font-style:italic;color:oklch(0.984 0.003 247.858)}
+    .hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:40px;opacity:0;animation:fadeUp .6s .5s forwards}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;padding:14px 32px;font-size:.9375rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none}
+    .btn-primary{background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755)}
+    .btn-primary:hover{transform:scale(1.05)}
+    .btn-outline{border:1px solid oklch(1 0 0/.1);color:oklch(0.984 0.003 247.858);background:transparent}
+    .btn-outline:hover{transform:scale(1.05);background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755)}
+    .btn-sm{padding:10px 20px;font-size:.8125rem}
+    .btn svg{transition:transform .3s}
+    .btn:hover svg{transform:translateX(4px)}
+
+    .gradient-line{height:1px;max-width:1200px;margin:0 auto;background:linear-gradient(90deg,transparent 0%,oklch(0.984 0.003 247.858) 50%,transparent 100%);background-size:200% 100%;animation:gradientSlide 4s linear infinite}
+    @keyframes gradientSlide{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+    .section-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.3em;color:oklch(0.704 0.04 256.788)}
+    .section-title{font-size:2.5rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-top:12px}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    .slide-left{opacity:0;transform:translateX(-60px);transition:all .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+    .slide-left.in{opacity:1;transform:translateX(0)}
+
+    .projects-grid{display:grid;gap:24px;margin-top:48px}
+    @media(min-width:768px){.projects-grid{grid-template-columns:1fr 1fr}}
+    .carousel-wrap{position:relative;margin-top:48px}
+    .carousel-track{overflow:hidden;border-radius:16px}
+    .carousel-slide{display:none;animation:fadeIn .4s ease}
+    .carousel-slide.active{display:block}
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;border:1px solid oklch(1 0 0/.1);background:oklch(0.129 0.042 264.695/.9);color:oklch(0.984 0.003 247.858);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;backdrop-filter:blur(8px)}
+    .carousel-btn:hover{background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755);border-color:transparent}
+    .carousel-prev{left:-12px}
+    .carousel-next{right:-12px}
+    @media(max-width:768px){.carousel-btn{width:36px;height:36px}.carousel-prev{left:-8px}.carousel-next{right:-8px}}
+    .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+    .carousel-dot{width:8px;height:8px;border-radius:50%;border:1px solid oklch(1 0 0/.15);background:transparent;cursor:pointer;transition:all .3s;padding:0}
+    .carousel-dot.active{background:oklch(0.984 0.003 247.858);border-color:oklch(0.984 0.003 247.858);width:24px;border-radius:4px}
+
+    .project-card{position:relative;border-radius:16px;border:1px solid oklch(1 0 0/.1);overflow:hidden;background:oklch(0.129 0.042 264.695);transition:all .3s;cursor:default}
+    .project-card::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,oklch(0.984 0.003 247.858/.6),oklch(0.984 0.003 247.858/.1),oklch(0.984 0.003 247.858/.6));background-size:200% 200%;animation:gradientSlide 6s ease infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .3s}
+    .project-card:hover::before{opacity:1}
+    .project-card:hover{border-color:transparent;transform:scale(1.02)}
+    .project-img{width:100%;aspect-ratio:4/3;background:oklch(0.279 0.041 260.031);display:flex;align-items:center;justify-content:center;color:oklch(0.704 0.04 256.788);font-size:.8rem;overflow:hidden}
+    .project-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .project-card:hover .project-img img{transform:scale(1.05)}
+    .project-body{padding:24px}
+    .project-meta{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:oklch(0.704 0.04 256.788)}
+    .project-title{font-size:1.25rem;font-weight:700;margin-top:8px}
+    .project-desc{color:oklch(0.704 0.04 256.788);font-size:.875rem;margin-top:8px;line-height:1.6}
+    .project-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+    .badge{display:inline-flex;border-radius:6px;padding:4px 10px;font-size:.75rem;font-weight:500;border:1px solid oklch(1 0 0/.1);color:oklch(0.704 0.04 256.788)}
+    .project-card-lg{grid-column:1/-1}
+    .project-details{display:grid;gap:12px;margin-top:16px;padding:16px;background:oklch(1 0 0/.02);border-radius:12px;border:1px solid oklch(1 0 0/.06)}
+    @media(min-width:768px){.project-details{grid-template-columns:1fr 1fr 1fr}}
+    .detail-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:oklch(0.704 0.04 256.788);margin-bottom:6px}
+    .detail-text{font-size:.8125rem;color:oklch(0.704 0.04 256.788);line-height:1.6}
+    .project-actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+
+    .skills-list{display:grid;gap:0;margin-top:48px;max-width:600px}
+    @media(min-width:768px){.skills-list{grid-template-columns:1fr 1fr}}
+    .skill-item{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid oklch(1 0 0/.1);color:oklch(0.704 0.04 256.788);font-size:1.0625rem;font-weight:500;transition:transform .2s cubic-bezier(.34,1.56,.64,1),color .3s;cursor:default}
+    .skill-item .num{font-size:.75rem;font-family:monospace;color:oklch(0.704 0.04 256.788);min-width:32px}
+    .skill-check{width:20px;height:20px;color:oklch(0.704 0.04 256.788);transition:color .3s}
+    @media(hover:hover){.skill-item:hover .skill-check{color:oklch(0.984 0.003 247.858)}}
+    .skill-highlight{margin-top:32px;padding:20px 24px;border:1px solid oklch(1 0 0/.1);border-radius:12px;color:oklch(0.704 0.04 256.788);font-size:.9375rem;font-weight:600;display:inline-block;transition:transform .2s cubic-bezier(.34,1.56,.64,1),color .3s;cursor:default}
+
+    .about-grid{display:grid;gap:48px;margin-top:40px}
+    @media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr}}
+    .about-text{color:oklch(0.704 0.04 256.788);font-size:1rem;line-height:1.8}
+    .about-text p{margin-bottom:20px}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .stat-card{border:1px solid oklch(1 0 0/.1);border-radius:16px;padding:24px;text-align:center;transition:border-color .3s}
+    .stat-card:hover{border-color:oklch(0.984 0.003 247.858)}
+    .stat-card:first-child,.stat-card:nth-child(2){grid-column:span 2}
+    .stat-num{font-size:2.5rem;font-weight:800;line-height:1;margin-bottom:4px}
+    .stat-label{font-size:.8rem;color:oklch(0.704 0.04 256.788)}
+
+    .testimonial-card{border:1px solid oklch(1 0 0/.1);border-radius:16px;padding:32px;transition:all .3s}
+    .testimonial-card:hover{border-color:oklch(0.984 0.003 247.858);transform:scale(1.02)}
+    .testimonials-grid{display:grid;gap:24px;margin-top:48px}
+    @media(min-width:768px){.testimonials-grid{grid-template-columns:1fr 1fr}}
+    .testimonial-text{font-size:1.125rem;line-height:1.7;color:oklch(0.984 0.003 247.858);margin-bottom:24px}
+    .testimonial-author{display:flex;align-items:center;gap:12px}
+    .testimonial-avatar{width:40px;height:40px;border-radius:50%;background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+    .testimonial-name{font-weight:600;font-size:.9rem}
+    .testimonial-role{color:oklch(0.704 0.04 256.788);font-size:.8rem}
+
+    .contact-items{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;max-width:500px}
+    .contact-item{display:flex;align-items:center;gap:12px;padding:16px 24px;border:1px solid oklch(1 0 0/.1);border-radius:12px;color:oklch(0.984 0.003 247.858);text-decoration:none;font-size:.875rem;transition:all .3s;flex:1;min-width:200px}
+    .contact-item:hover{border-color:oklch(0.984 0.003 247.858);transform:translateY(-2px)}
+    .contact-icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;color:oklch(0.704 0.04 256.788)}
+    .social-links{display:flex;gap:12px;margin-top:24px}
+    .social-links a{width:44px;height:44px;border:1px solid oklch(1 0 0/.1);border-radius:9999px;display:flex;align-items:center;justify-content:center;color:oklch(0.984 0.003 247.858);text-decoration:none;font-size:.75rem;font-weight:700;transition:all .3s}
+    .social-links a:hover{border-color:oklch(0.984 0.003 247.858);transform:scale(1.1);background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755)}
+
+    .cta-section{background:oklch(0 0 0);padding:96px 0;border-top:1px solid oklch(1 0 0/.1)}
+    .cta-section .section-title{color:oklch(0.984 0.003 247.858)}
+    .cta-text{color:oklch(0.704 0.04 256.788);font-size:1.0625rem;margin-top:16px;max-width:500px}
+    .cta-btn{margin-top:32px}
+
+    footer{padding:40px 0;border-top:1px solid oklch(1 0 0/.1);text-align:center;color:oklch(0.45 0 0);font-size:.875rem}
+
+    @media(max-width:768px){
+      .hero-split{flex-direction:column;text-align:center}
+      .hero-h1{font-size:3rem}
+      .hero-h1.right{text-align:center}
+      .hero-portrait{width:180px;height:240px}
+      .section-title{font-size:1.75rem}
+      .section{padding:64px 0}
+      nav{gap:16px}
+      nav a{font-size:.8rem}
+      .nav-cta{padding:8px 16px;font-size:.8rem}
+      header .container{height:64px}
+      .project-card:hover{transform:none}
+    }
+    @media(max-width:480px){
+      .hero-h1{font-size:2.2rem}
+      .hero-portrait{width:140px;height:200px}
+      .container{padding:0 16px}
+    }
+  </style>
+</head>
+<body>
+  <header style="border-bottom-color: transparent;">
+    <div class="container">
+      <a href="#" class="logo">
+        <div class="logo-img"><img src="./assets/huzaifa-logo.png" alt="Huzaifa"></div>
+        <span>Huzaifa<span>.</span></span>
+      </a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Hire Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <div class="ping"><span></span><span></span></div>
+        Available for new projects
+      </div>
+      <div class="hero-label">Huzaifa Saleh</div>
+      <div class="hero-split">
+        <h1 class="hero-h1 right"><span class="letter" style="--i:0">S</span><span class="letter" style="--i:1">a</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">S</span></h1>
+        <div class="hero-portrait">
+          <img src="./assets/huzaifa-portrait.jpg" alt="Huzaifa Saleh" loading="lazy">
+        </div>
+        <h1 class="hero-h1" style="font-size:clamp(1.8rem,5vw,4.5rem)"><span class="letter" style="--i:0">D</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">v</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">l</span><span class="letter" style="--i:5">o</span><span class="letter" style="--i:6">p</span><span class="letter" style="--i:7">e</span><span class="letter" style="--i:8">r</span></h1>
+      </div>
+      <p class="hero-desc">I build <em>high-converting SaaS platforms</em> and digital ecosystems that help brands maximize revenue and scale operations.</p>
+      <div class="hero-btns">
+        <a href="mailto:huzaifasaleh643@gmail.com" class="btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        <a href="#work" class="btn btn-outline">View My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="gradient-line"></div>
+
+  <div class="container">
+    <section class="section" id="work">
+      <p class="section-label reveal in">Featured Work</p>
+      <h2 class="section-title reveal in" style="transition-delay:.1s"><span class="letter" style="--i:0">S</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">l</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">c</span><span class="letter" style="--i:5">t</span><span class="letter" style="--i:6">e</span><span class="letter" style="--i:7">d</span><span class="letter" style="--i:8">&nbsp;</span><span class="letter" style="--i:9">P</span><span class="letter" style="--i:10">r</span><span class="letter" style="--i:11">o</span><span class="letter" style="--i:12">j</span><span class="letter" style="--i:13">e</span><span class="letter" style="--i:14">c</span><span class="letter" style="--i:15">t</span><span class="letter" style="--i:16">s</span></h2>
+      <div class="carousel-wrap reveal in" style="transition-delay:.15s">
+        <button class="carousel-btn carousel-prev" aria-label="Previous project"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"></path></svg></button>
+        <div class="carousel-track">
+          <div class="project-card carousel-slide active">
+            <div class="project-img"><img src="./assets/invoice-place-icon.png" alt="Invoice Place" loading="lazy"></div>
+          <div class="project-body">
+            <p class="project-meta">SaaS · 2026</p>
+            <h3 class="project-title">Invoice Place — Billing SaaS</h3>
+            <p class="project-desc">An automated system for businesses to eliminate manual billing errors and accelerate cash flow.</p>
+            <div class="project-details">
+              <div class="detail-block">
+                <p class="detail-label">Problem</p>
+                <p class="detail-text">Businesses struggle with manual billing.</p>
+              </div>
+              <div class="detail-block">
+                <p class="detail-label">Solution</p>
+                <p class="detail-text">I built an automated system that cuts billing time by 70%.</p>
+              </div>
+              <div class="detail-block">
+                <p class="detail-label">Result</p>
+                <p class="detail-text">Live and functional tool.</p>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="badge">React</span>
+              <span class="badge">Node.js</span>
+              <span class="badge">Stripe</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://invoice-place.lovable.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card carousel-slide">
+          <div class="project-img"><img src="./assets/brewflow-coffee.jpeg" alt="BrewFlow" loading="lazy"></div>
+          <div class="project-body">
+            <p class="project-meta">Commerce · 2026</p>
+            <h3 class="project-title">BrewFlow — Cafe Direct Commerce</h3>
+            <p class="project-desc">B2B Ordering Platform for Specialty Coffee Brands — a direct ordering ecosystem that restores brand identity and profit margins for high-end cafes and luxury food brands.</p>
+            <div class="project-details">
+              <div class="detail-block">
+                <p class="detail-label">Problem</p>
+                <p class="detail-text">High-end cafes losing their premium brand identity and 30% profit margins to third-party delivery aggregators.</p>
+              </div>
+              <div class="detail-block">
+                <p class="detail-label">Solution</p>
+                <p class="detail-text">An ultra-fast, high-converting direct ordering web application optimized for luxury cafe chains, enabling seamless checkout and 100% commission retention.</p>
+              </div>
+              <div class="detail-block">
+                <p class="detail-label">Result</p>
+                <p class="detail-text">Live prototype experience ready for premium brand deployment.</p>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="badge">Next.js</span>
+              <span class="badge">Postgres</span>
+              <span class="badge">Stripe</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://drip-dish-delight.lovable.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card project-card-lg carousel-slide">
+          <div class="project-img"><img src="./assets/smart-realty-cover.jpeg" alt="Smart Realty CRM" loading="lazy"></div>
+          <div class="project-body">
+            <p class="project-meta">SAAS · 2026</p>
+            <h3 class="project-title">Smart Realty — Localized Real Estate Agency CRM</h3>
+            <p class="project-desc">A high-performance database and automation platform built for modern property dealers and real estate agencies.</p>
+            <div class="project-details">
+              <div class="detail-block">
+                <p class="detail-label">Problem</p>
+                <p class="detail-text">Local real estate agencies handle high-ticket properties but manage them using messy manual registers. Western CRM tools fail locally because agents struggle with complex English-only interfaces, leading to lost client data and commission leakages.</p>
+              </div>
+              <div class="detail-block">
+                <p class="detail-label">Solution</p>
+                <p class="detail-text">I engineered a full-stack CRM that automates property tracking, client pipelines, and commissions. It features a unique Dual-Language Localization Engine that instantly toggles the entire app between English and Roman Urdu (e.g., "Kamai", "Yaddhani") for local agents.</p>
+              </div>
+              <div class="detail-block">
+                <p class="detail-label">Result</p>
+                <p class="detail-text">Fully operational, live, and localized. Onboards non-technical field agents seamlessly and cuts operational tracking time by 60%.</p>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="badge">React</span>
+              <span class="badge">Node.js</span>
+              <span class="badge">Postgres</span>
+              <span class="badge">Dual-Lang</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://realestate-pakistan.lovable.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Launch Live Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a>
+              <a href="#" class="btn btn-outline btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn carousel-next" aria-label="Next project"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"></path></svg></button>
+      <div class="carousel-dots"><button class="carousel-dot active"></button><button class="carousel-dot"></button><button class="carousel-dot"></button></div>
+    </div></section>
+  </div>
+
+  <div class="gradient-line"></div>
+
+  <div class="container">
+    <section class="section" id="skills">
+      <p class="section-label reveal">Capabilities</p>
+      <h2 class="section-title reveal" style="transition-delay:.1s"><span class="letter" style="--i:0">W</span><span class="letter" style="--i:1">h</span><span class="letter" style="--i:2">a</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">&nbsp;</span><span class="letter" style="--i:5">I</span><span class="letter" style="--i:6">&nbsp;</span><span class="letter" style="--i:7">B</span><span class="letter" style="--i:8">u</span><span class="letter" style="--i:9">i</span><span class="letter" style="--i:10">l</span><span class="letter" style="--i:11">d</span></h2>
+      <div class="skills-list reveal" style="transition-delay:.15s">
+        <div class="skill-item"><span><span class="num">01</span> Full-stack SaaS applications</span><svg class="skill-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div class="skill-item"><span><span class="num">02</span> Authentication systems</span><svg class="skill-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div class="skill-item"><span><span class="num">03</span> Payment integrations</span><svg class="skill-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div class="skill-item"><span><span class="num">04</span> Dashboard interfaces</span><svg class="skill-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div class="skill-item"><span><span class="num">05</span> Workflow automation tools</span><svg class="skill-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div class="skill-item"><span><span class="num">06</span> API design &amp; integration</span><svg class="skill-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg></div>
+      </div>
+      <div class="skill-highlight reveal" style="transition-delay:.2s">Built full-stack SaaS with auth, payments &amp; dashboards</div>
+    </section>
+  </div>
+
+  <div class="gradient-line"></div>
+
+  <div class="container">
+    <section class="section" id="about">
+      <p class="section-label reveal">About</p>
+      <h2 class="section-title reveal" style="transition-delay:.1s"><span class="letter" style="--i:0">W</span><span class="letter" style="--i:1">h</span><span class="letter" style="--i:2">o</span><span class="letter" style="--i:3">&nbsp;</span><span class="letter" style="--i:4">I</span><span class="letter" style="--i:5">&nbsp;</span><span class="letter" style="--i:6">A</span><span class="letter" style="--i:7">m</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal" style="transition-delay:.15s">
+          <p>I'm a SaaS developer focused on building real-world applications that solve practical problems.</p>
+          <p>Alongside my journey, I actively experiment with mobile apps, ad integrations, and customizable app templates. I enjoy turning ideas into working products and understanding how systems connect.</p>
+          <p>Currently, I'm strengthening my skills in app architecture, UI/UX design, and core functionality. My approach is simple: build consistently, improve with every project, and focus on real impact.</p>
+          <p>I aim to grow step by step and work on more meaningful and scalable projects.</p>
+        </div>
+        <div class="reveal" style="transition-delay:.25s">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-num"><span class="counter" data-target="5">0</span>+</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num"><span class="counter" data-target="20">0</span>+</div>
+              <div class="stat-label">SaaS Products</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num"><span class="counter" data-target="100">0</span>%</div>
+              <div class="stat-label">Commitment</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num"><span class="counter" data-target="1">0</span></div>
+              <div class="stat-label">Year Building</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="gradient-line"></div>
+
+  <div class="container">
+    <section class="section" id="testimonials">
+      <p class="section-label slide-left">Client reviews</p>
+      <h2 class="section-title slide-left" style="transition-delay:.1s"><span class="letter" style="--i:0">T</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">s</span><span class="letter" style="--i:3">t</span><span class="letter" style="--i:4">i</span><span class="letter" style="--i:5">m</span><span class="letter" style="--i:6">o</span><span class="letter" style="--i:7">n</span><span class="letter" style="--i:8">i</span><span class="letter" style="--i:9">a</span><span class="letter" style="--i:10">l</span><span class="letter" style="--i:11">s</span></h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card slide-left" style="transition-delay:.15s">
+          <div class="testimonial-text">"The team delivered exactly what we needed—fast, clear, and no hassle."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Alex Rivera</div>
+              <div class="testimonial-role">Client</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card slide-left" style="transition-delay:.25s">
+          <div class="testimonial-text">"Professional, efficient, and easy to work with. Our project launched ahead of schedule."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <div class="testimonial-name">Riley Bennett</div>
+              <div class="testimonial-role">Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="gradient-line"></div>
+
+  <div class="container">
+    <section class="section" id="contact">
+      <p class="section-label slide-left">Contact</p>
+      <h2 class="section-title slide-left" style="transition-delay:.1s"><span class="letter" style="--i:0">L</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">t</span><span class="letter" style="--i:3">'</span><span class="letter" style="--i:4">s</span><span class="letter" style="--i:5">&nbsp;</span><span class="letter" style="--i:6">W</span><span class="letter" style="--i:7">o</span><span class="letter" style="--i:8">r</span><span class="letter" style="--i:9">k</span><span class="letter" style="--i:10">&nbsp;</span><span class="letter" style="--i:11">T</span><span class="letter" style="--i:12">o</span><span class="letter" style="--i:13">g</span><span class="letter" style="--i:14">e</span><span class="letter" style="--i:15">t</span><span class="letter" style="--i:16">h</span><span class="letter" style="--i:17">e</span><span class="letter" style="--i:18">r</span></h2>
+      <div class="contact-items slide-left" style="transition-delay:.15s">
+        <a href="mailto:huzaifasaleh643@gmail.com" class="contact-item">
+          <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M22 6L12 13 2 6"></path><path d="M2 6v12a2 2 0 002 2h16a2 2 0 002-2V6"></path></svg></span>
+          huzaifasaleh643@gmail.com
+        </a>
+        <a href="tel:03379694544" class="contact-item">
+          <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg></span>
+          03379694544
+        </a>
+      </div>
+      <div class="social-links slide-left" style="transition-delay:.2s">
+        <a href="https://wa.me/923379694544" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
+        <a href="https://twitter.com/HuzaifaSal5047" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61590149835408" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+        <a href="https://github.com/huzaifasaleh643-bot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+      </div>
+    </section>
+  </div>
+
+  <section class="cta-section">
+    <div class="container" style="text-align:center">
+      <h2 class="section-title reveal">Have a SaaS idea? Let's turn it into a real product.</h2>
+      <p class="cta-text reveal" style="transition-delay:.1s;margin-left:auto;margin-right:auto">If you want to build something great, reach out and let's make it happen.</p>
+      <div class="cta-btn reveal" style="transition-delay:.2s">
+        <a href="mailto:huzaifasaleh643@gmail.com" class="btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Huzaifa – SaaS Developer</footer>
+
+  <script>
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}})},{threshold:.1});
+    document.querySelectorAll('.reveal,.slide-left').forEach(e=>observer.observe(e));
+    document.querySelectorAll('.counter').forEach(c=>{const t=+c.dataset.target,d=Math.ceil(t/60);let n=0,id=null;const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){id=setInterval(()=>{n+=d,n>=t&&(n=t,clearInterval(id)),c.textContent=n},30);o.unobserve(e.target)}})},{threshold:.5});o.observe(c)});
+    const h=document.querySelector('header');window.addEventListener('scroll',()=>{h.style.borderBottomColor=window.scrollY>8?'oklch(1 0 0/.1)':'transparent'},{passive:true});
+    document.addEventListener('touchend',()=>{document.querySelectorAll('.letter,.skill-item,.skill-highlight').forEach(e=>{e.blur()})},{passive:true});
+    (function(){const t=document.querySelector('.carousel-track'),s=t?.querySelectorAll('.carousel-slide'),d=document.querySelector('.carousel-dots'),p=document.querySelector('.carousel-prev'),n=document.querySelector('.carousel-next');if(!s?.length)return;let i=0;function g(){s.forEach((e,j)=>{e.classList.toggle('active',j===i)});d?.querySelectorAll('.carousel-dot').forEach((e,j)=>{e.classList.toggle('active',j===i)})}s[0]?.classList.add('active');s.forEach((e,j)=>{const o=document.createElement('button');o.className='carousel-dot'+(j===0?' active':'');o.addEventListener('click',()=>{i=j;g()});d?.appendChild(o)});p?.addEventListener('click',()=>{i=i>0?i-1:s.length-1;g()});n?.addEventListener('click',()=>{i=i<s.length-1?i+1:0;g()})})();
+  </script>
+
+
+</body></html>
