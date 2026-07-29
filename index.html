@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)file:///C:/Users/DELL/Desktop/portfolio.html -->
-<html lang="en" class="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Huzaifa – SaaS Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="./assets/css2" rel="stylesheet">
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huzaifa Saleh — SaaS Developer Portfolio</title>
+  <meta name="description" content="Huzaifa Saleh — SaaS Developer. I build high-converting SaaS platforms and digital ecosystems that help brands maximize revenue and scale operations." />
+  <meta property="og:title" content="Huzaifa Saleh — SaaS Developer" />
+  <meta property="og:description" content="I build high-converting SaaS platforms and digital ecosystems that help brands maximize revenue and scale operations." />
+  <meta property="og:image" content="https://huzaifasaleh643-bot.github.io/huzaifa-portfolio/assets/huzaifa-portrait.jpg" />
+  <meta property="og:url" content="https://huzaifasaleh643-bot.github.io/huzaifa-portfolio/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Huzaifa Saleh — SaaS Developer" />
+  <meta name="twitter:description" content="I build high-converting SaaS platforms and digital ecosystems that help brands maximize revenue and scale operations." />
+  <meta name="twitter:image" content="https://huzaifasaleh643-bot.github.io/huzaifa-portfolio/assets/huzaifa-portrait.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth;color-scheme:dark}
     body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:oklch(0.129 0.042 264.695);color:oklch(0.984 0.003 247.858);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
     .section{padding:96px 0}
-
     header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;background:oklch(0.129 0.042 264.695/.8);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid oklch(1 0 0/.1)}
     header .container{display:flex;justify-content:space-between;align-items:center;height:72px}
     .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;font-weight:700;font-size:1.125rem;letter-spacing:-.5px}
@@ -25,7 +34,6 @@
     nav a:hover{color:oklch(0.984 0.003 247.858)}
     .nav-cta{background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755)!important;border-radius:9999px;padding:10px 24px;font-weight:600;transition:transform .3s!important}
     .nav-cta:hover{transform:scale(1.05);color:oklch(0.208 0.042 265.755)!important}
-
     .hero{position:relative;overflow:hidden;padding:140px 0 80px}
     .hero .container{position:relative}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid oklch(1 0 0/.1);border-radius:9999px;padding:6px 16px;font-size:.75rem;font-weight:500;color:oklch(0.704 0.04 256.788);margin-bottom:40px;opacity:0;animation:fadeIn .6s .1s forwards}
@@ -49,10 +57,8 @@
     .hero-desc{margin-top:48px;text-align:center;max-width:600px;margin-left:auto;margin-right:auto;color:oklch(0.704 0.04 256.788);font-size:1.0625rem;opacity:0;animation:fadeUp .6s .4s forwards}
     .hero-desc em{font-family:'Instrument Serif',serif;font-style:italic;color:oklch(0.984 0.003 247.858)}
     .hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:40px;opacity:0;animation:fadeUp .6s .5s forwards}
-
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
     .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;padding:14px 32px;font-size:.9375rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none}
     .btn-primary{background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755)}
     .btn-primary:hover{transform:scale(1.05)}
@@ -61,18 +67,14 @@
     .btn-sm{padding:10px 20px;font-size:.8125rem}
     .btn svg{transition:transform .3s}
     .btn:hover svg{transform:translateX(4px)}
-
     .gradient-line{height:1px;max-width:1200px;margin:0 auto;background:linear-gradient(90deg,transparent 0%,oklch(0.984 0.003 247.858) 50%,transparent 100%);background-size:200% 100%;animation:gradientSlide 4s linear infinite}
     @keyframes gradientSlide{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-
     .section-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.3em;color:oklch(0.704 0.04 256.788)}
     .section-title{font-size:2.5rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-top:12px}
-
     .reveal{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
     .reveal.in{opacity:1;transform:translateY(0)}
     .slide-left{opacity:0;transform:translateX(-60px);transition:all .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
     .slide-left.in{opacity:1;transform:translateX(0)}
-
     .projects-grid{display:grid;gap:24px;margin-top:48px}
     @media(min-width:768px){.projects-grid{grid-template-columns:1fr 1fr}}
     .carousel-wrap{position:relative;margin-top:48px}
@@ -87,7 +89,6 @@
     .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
     .carousel-dot{width:8px;height:8px;border-radius:50%;border:1px solid oklch(1 0 0/.15);background:transparent;cursor:pointer;transition:all .3s;padding:0}
     .carousel-dot.active{background:oklch(0.984 0.003 247.858);border-color:oklch(0.984 0.003 247.858);width:24px;border-radius:4px}
-
     .project-card{position:relative;border-radius:16px;border:1px solid oklch(1 0 0/.1);overflow:hidden;background:oklch(0.129 0.042 264.695);transition:all .3s;cursor:default}
     .project-card::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,oklch(0.984 0.003 247.858/.6),oklch(0.984 0.003 247.858/.1),oklch(0.984 0.003 247.858/.6));background-size:200% 200%;animation:gradientSlide 6s ease infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .3s}
     .project-card:hover::before{opacity:1}
@@ -107,7 +108,6 @@
     .detail-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:oklch(0.704 0.04 256.788);margin-bottom:6px}
     .detail-text{font-size:.8125rem;color:oklch(0.704 0.04 256.788);line-height:1.6}
     .project-actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
-
     .skills-list{display:grid;gap:0;margin-top:48px;max-width:600px}
     @media(min-width:768px){.skills-list{grid-template-columns:1fr 1fr}}
     .skill-item{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid oklch(1 0 0/.1);color:oklch(0.704 0.04 256.788);font-size:1.0625rem;font-weight:500;transition:transform .2s cubic-bezier(.34,1.56,.64,1),color .3s;cursor:default}
@@ -115,7 +115,6 @@
     .skill-check{width:20px;height:20px;color:oklch(0.704 0.04 256.788);transition:color .3s}
     @media(hover:hover){.skill-item:hover .skill-check{color:oklch(0.984 0.003 247.858)}}
     .skill-highlight{margin-top:32px;padding:20px 24px;border:1px solid oklch(1 0 0/.1);border-radius:12px;color:oklch(0.704 0.04 256.788);font-size:.9375rem;font-weight:600;display:inline-block;transition:transform .2s cubic-bezier(.34,1.56,.64,1),color .3s;cursor:default}
-
     .about-grid{display:grid;gap:48px;margin-top:40px}
     @media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr}}
     .about-text{color:oklch(0.704 0.04 256.788);font-size:1rem;line-height:1.8}
@@ -126,7 +125,6 @@
     .stat-card:first-child,.stat-card:nth-child(2){grid-column:span 2}
     .stat-num{font-size:2.5rem;font-weight:800;line-height:1;margin-bottom:4px}
     .stat-label{font-size:.8rem;color:oklch(0.704 0.04 256.788)}
-
     .testimonial-card{border:1px solid oklch(1 0 0/.1);border-radius:16px;padding:32px;transition:all .3s}
     .testimonial-card:hover{border-color:oklch(0.984 0.003 247.858);transform:scale(1.02)}
     .testimonials-grid{display:grid;gap:24px;margin-top:48px}
@@ -136,7 +134,6 @@
     .testimonial-avatar{width:40px;height:40px;border-radius:50%;background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
     .testimonial-name{font-weight:600;font-size:.9rem}
     .testimonial-role{color:oklch(0.704 0.04 256.788);font-size:.8rem}
-
     .contact-items{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;max-width:500px}
     .contact-item{display:flex;align-items:center;gap:12px;padding:16px 24px;border:1px solid oklch(1 0 0/.1);border-radius:12px;color:oklch(0.984 0.003 247.858);text-decoration:none;font-size:.875rem;transition:all .3s;flex:1;min-width:200px}
     .contact-item:hover{border-color:oklch(0.984 0.003 247.858);transform:translateY(-2px)}
@@ -144,14 +141,11 @@
     .social-links{display:flex;gap:12px;margin-top:24px}
     .social-links a{width:44px;height:44px;border:1px solid oklch(1 0 0/.1);border-radius:9999px;display:flex;align-items:center;justify-content:center;color:oklch(0.984 0.003 247.858);text-decoration:none;font-size:.75rem;font-weight:700;transition:all .3s}
     .social-links a:hover{border-color:oklch(0.984 0.003 247.858);transform:scale(1.1);background:oklch(0.984 0.003 247.858);color:oklch(0.208 0.042 265.755)}
-
     .cta-section{background:oklch(0 0 0);padding:96px 0;border-top:1px solid oklch(1 0 0/.1)}
     .cta-section .section-title{color:oklch(0.984 0.003 247.858)}
     .cta-text{color:oklch(0.704 0.04 256.788);font-size:1.0625rem;margin-top:16px;max-width:500px}
     .cta-btn{margin-top:32px}
-
     footer{padding:40px 0;border-top:1px solid oklch(1 0 0/.1);text-align:center;color:oklch(0.45 0 0);font-size:.875rem}
-
     @media(max-width:768px){
       .hero-split{flex-direction:column;text-align:center}
       .hero-h1{font-size:3rem}
@@ -188,7 +182,6 @@
       </nav>
     </div>
   </header>
-
   <section class="hero">
     <div class="container">
       <div class="hero-badge">
@@ -210,9 +203,7 @@
       </div>
     </div>
   </section>
-
   <div class="gradient-line"></div>
-
   <div class="container">
     <section class="section" id="work">
       <p class="section-label reveal in">Featured Work</p>
@@ -317,9 +308,7 @@
       <div class="carousel-dots"><button class="carousel-dot active"></button><button class="carousel-dot"></button><button class="carousel-dot"></button></div>
     </div></section>
   </div>
-
   <div class="gradient-line"></div>
-
   <div class="container">
     <section class="section" id="skills">
       <p class="section-label reveal">Capabilities</p>
@@ -335,9 +324,7 @@
       <div class="skill-highlight reveal" style="transition-delay:.2s">Built full-stack SaaS with auth, payments &amp; dashboards</div>
     </section>
   </div>
-
   <div class="gradient-line"></div>
-
   <div class="container">
     <section class="section" id="about">
       <p class="section-label reveal">About</p>
@@ -372,9 +359,7 @@
       </div>
     </section>
   </div>
-
   <div class="gradient-line"></div>
-
   <div class="container">
     <section class="section" id="testimonials">
       <p class="section-label slide-left">Client reviews</p>
@@ -403,9 +388,7 @@
       </div>
     </section>
   </div>
-
   <div class="gradient-line"></div>
-
   <div class="container">
     <section class="section" id="contact">
       <p class="section-label slide-left">Contact</p>
@@ -428,7 +411,6 @@
       </div>
     </section>
   </div>
-
   <section class="cta-section">
     <div class="container" style="text-align:center">
       <h2 class="section-title reveal">Have a SaaS idea? Let's turn it into a real product.</h2>
@@ -438,9 +420,7 @@
       </div>
     </div>
   </section>
-
-  <footer>© 2026 Huzaifa – SaaS Developer</footer>
-
+  <footer>© 2026 Huzaifa — SaaS Developer</footer>
   <script>
     const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}})},{threshold:.1});
     document.querySelectorAll('.reveal,.slide-left').forEach(e=>observer.observe(e));
@@ -449,6 +429,5 @@
     document.addEventListener('touchend',()=>{document.querySelectorAll('.letter,.skill-item,.skill-highlight').forEach(e=>{e.blur()})},{passive:true});
     (function(){const t=document.querySelector('.carousel-track'),s=t?.querySelectorAll('.carousel-slide'),d=document.querySelector('.carousel-dots'),p=document.querySelector('.carousel-prev'),n=document.querySelector('.carousel-next');if(!s?.length)return;let i=0;function g(){s.forEach((e,j)=>{e.classList.toggle('active',j===i)});d?.querySelectorAll('.carousel-dot').forEach((e,j)=>{e.classList.toggle('active',j===i)})}s[0]?.classList.add('active');s.forEach((e,j)=>{const o=document.createElement('button');o.className='carousel-dot'+(j===0?' active':'');o.addEventListener('click',()=>{i=j;g()});d?.appendChild(o)});p?.addEventListener('click',()=>{i=i>0?i-1:s.length-1;g()});n?.addEventListener('click',()=>{i=i<s.length-1?i+1:0;g()})})();
   </script>
-
-
-</body></html>
+</body>
+</html>
