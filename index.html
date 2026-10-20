@@ -182,6 +182,16 @@
     .review-msg.ok{color:oklch(0.87 0.13 155)}
     .review-msg.err{color:oklch(0.78 0.14 25)}
     .review-hp{position:absolute!important;left:-9999px!important}
+    .star-picker{display:flex;gap:6px;margin-top:2px}
+    .star-picker .star{background:none;border:0;padding:0;font-size:1.75rem;line-height:1;cursor:pointer;color:oklch(1 0 0/.18);transition:color .15s,transform .15s}
+    .star-picker .star.on{color:oklch(0.85 0.14 85)}
+    .star-picker .star:hover{transform:scale(1.15)}
+    .testimonial-stars{color:oklch(0.85 0.14 85);font-size:.95rem;letter-spacing:.18em;margin-bottom:14px}
+    .testimonials-grid .testimonial-card{position:relative}
+    .review-del{position:absolute;top:10px;right:12px;background:none;border:0;color:oklch(1 0 0/.28);font-size:1.15rem;line-height:1;cursor:pointer;padding:4px 7px;border-radius:8px;opacity:0;transition:all .2s}
+    .testimonials-grid .testimonial-card:hover .review-del{opacity:1}
+    .review-del:hover{color:oklch(0.78 0.14 25);background:oklch(1 0 0/.07)}
+    @media (hover:none){.review-del{opacity:1}}
   </style>
 </head>
 <body>
@@ -452,6 +462,15 @@
       <p class="section-label">Client reviews</p>
       <h3 id="reviewTitle">Leave a Review</h3>
       <form id="reviewForm" novalidate>
+        <label class="review-field"><span class="flabel">Your rating</span>
+          <div class="star-picker" id="starPicker" role="group" aria-label="Star rating">
+            <button type="button" class="star" data-v="1" aria-label="1 star">&#9733;</button>
+            <button type="button" class="star" data-v="2" aria-label="2 stars">&#9733;</button>
+            <button type="button" class="star" data-v="3" aria-label="3 stars">&#9733;</button>
+            <button type="button" class="star" data-v="4" aria-label="4 stars">&#9733;</button>
+            <button type="button" class="star" data-v="5" aria-label="5 stars">&#9733;</button>
+          </div>
+        </label>
         <label class="review-field"><span class="flabel">Your name *</span>
           <input type="text" name="name" maxlength="60" required placeholder="e.g. Ahmed Khan">
         </label>
@@ -482,6 +501,7 @@
       fetch(REVIEWS_API+'/api/reviews').then(function(r){return r.json()}).then(function(d){
         (d.reviews||[]).forEach(function(rv){
           const card=document.createElement('div');card.className='testimonial-card slide-left';
+          if(rv.rating){const sw=document.createElement('div');sw.className='testimonial-stars';sw.textContent='\u2605'.repeat(rv.rating)+'\u2606'.repeat(5-rv.rating);card.appendChild(sw);}
           const t=document.createElement('div');t.className='testimonial-text';t.textContent='\u201C'+rv.text+'\u201D';
           const a=document.createElement('div');a.className='testimonial-author';
           const av=document.createElement('div');av.className='testimonial-avatar';av.textContent=(rv.name||'?').trim().charAt(0).toUpperCase();
@@ -491,6 +511,19 @@
           info.appendChild(nm);info.appendChild(rl);
           a.appendChild(av);a.appendChild(info);
           card.appendChild(t);card.appendChild(a);
+          if(rv.id){
+            const del=document.createElement('button');del.type='button';del.className='review-del';del.title='Remove this review';del.setAttribute('aria-label','Remove review');del.textContent='\u00d7';
+            del.addEventListener('click',function(){
+              const tok=prompt('Enter admin token to remove this review:');
+              if(!tok||!tok.trim())return;
+              fetch(REVIEWS_API+'/api/admin',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+tok.trim()},body:JSON.stringify({id:rv.id,action:'delete'})})
+                .then(function(res){return res.json()}).then(function(d){
+                  if(d.ok){card.style.transition='opacity .3s';card.style.opacity='0';setTimeout(function(){card.remove()},300);}
+                  else alert(d.error||'Could not remove review.');
+                }).catch(function(){alert('Connection error — try again.');});
+            });
+            card.appendChild(del);
+          }
           grid.appendChild(card);
           observer.observe(card);
         });
@@ -503,6 +536,16 @@
       const close=document.getElementById('reviewClose');
       const form=document.getElementById('reviewForm');
       const msg=document.getElementById('reviewMsg');
+      const picker=document.getElementById('starPicker');
+      let rating=5;
+      const starBtns=picker?picker.querySelectorAll('.star'):[];
+      function paint(hi){starBtns.forEach(function(s){s.classList.toggle('on',+s.dataset.v<=(hi||rating))})}
+      starBtns.forEach(function(s){
+        s.addEventListener('click',function(){rating=+s.dataset.v;paint()});
+        s.addEventListener('mouseenter',function(){paint(+s.dataset.v)});
+      });
+      if(picker)picker.addEventListener('mouseleave',function(){paint()});
+      paint();
       function hide(){modal.classList.remove('open');document.body.style.overflow=''}
       open.addEventListener('click',function(){modal.classList.add('open');document.body.style.overflow='hidden';msg.textContent='';msg.className='review-msg'});
       close.addEventListener('click',hide);
@@ -511,11 +554,11 @@
       form.addEventListener('submit',function(e){
         e.preventDefault();
         const fd=new FormData(form);
-        const payload={name:fd.get('name'),role:fd.get('role'),text:fd.get('text'),website:fd.get('website')};
+        const payload={name:fd.get('name'),role:fd.get('role'),text:fd.get('text'),rating:rating,website:fd.get('website')};
         msg.className='review-msg';msg.textContent='Sending...';
         fetch(REVIEWS_API+'/api/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
           .then(function(r){return r.json()}).then(function(d){
-            if(d.ok){msg.className='review-msg ok';msg.textContent='Thank you! Your review will appear here once approved.';form.reset();setTimeout(hide,2400);}
+            if(d.ok){msg.className='review-msg ok';msg.textContent='Thank you! Your review will appear here once approved.';form.reset();rating=5;paint();setTimeout(hide,2400);}
             else{msg.className='review-msg err';msg.textContent=d.error||'Something went wrong.';}
           }).catch(function(){msg.className='review-msg err';msg.textContent='Connection error — please try again.';});
       });
