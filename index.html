@@ -189,7 +189,6 @@
     @keyframes testi-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .testi-track .testimonial-card{flex:0 0 340px;margin-right:24px}
     @media(max-width:640px){.testi-track .testimonial-card{flex:0 0 268px}}
-    @media(prefers-reduced-motion:reduce){.testi-track{animation:none}}
     .star-picker{display:flex;gap:6px;margin-top:2px}
     .star-picker .star{background:none;border:0;padding:0;font-size:1.75rem;line-height:1;cursor:pointer;color:oklch(1 0 0/.18);transition:color .15s,transform .15s}
     .star-picker .star.on{color:oklch(0.85 0.14 85)}
@@ -519,10 +518,23 @@
         });
         mq.appendChild(track);
         grid.parentNode.replaceChild(mq,grid);
-        requestAnimationFrame(function(){track.style.animationDuration=Math.max(30,Math.round(track.scrollWidth/2/45))+'s'});
-        mq.addEventListener('touchstart',function(){mq.classList.add('paused')},{passive:true});
-        mq.addEventListener('touchend',function(){mq.classList.remove('paused')},{passive:true});
-        mq.addEventListener('touchcancel',function(){mq.classList.remove('paused')},{passive:true});
+        requestAnimationFrame(function(){
+          const dur=Math.max(30,Math.round(track.scrollWidth/2/45))*1000;
+          let anim=null;
+          if(typeof track.animate==='function'){
+            track.style.animation='none';
+            anim=track.animate([{transform:'translateX(0)'},{transform:'translateX(-50%)'}],{duration:dur,iterations:Infinity,easing:'linear'});
+          }else{
+            track.style.animationDuration=(dur/1000)+'s';
+          }
+          function pause(){if(anim){anim.pause()}else{track.style.animationPlayState='paused'}}
+          function play(){if(anim){anim.play()}else{track.style.animationPlayState=''}}
+          mq.addEventListener('mouseenter',pause);
+          mq.addEventListener('mouseleave',play);
+          mq.addEventListener('touchstart',pause,{passive:true});
+          mq.addEventListener('touchend',play,{passive:true});
+          mq.addEventListener('touchcancel',play,{passive:true});
+        });
       }
       fetch(REVIEWS_API+'/api/reviews').then(function(r){return r.json()}).then(function(d){
         (d.reviews||[]).forEach(function(rv){
