@@ -164,6 +164,24 @@
       .hero-portrait{width:140px;height:200px}
       .container{padding:0 16px}
     }
+
+    /* ---- Client review form ---- */
+    .reviews-cta{text-align:center;margin-top:36px}
+    .review-modal{position:fixed;inset:0;background:oklch(0 0 0/.78);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+    .review-modal.open{display:flex}
+    .review-modal-card{width:100%;max-width:470px;background:oklch(0.16 0.02 265);border:1px solid oklch(1 0 0/.12);border-radius:20px;padding:34px;position:relative;max-height:90vh;overflow-y:auto}
+    .review-close{position:absolute;top:12px;right:18px;background:none;border:0;color:oklch(0.704 0.04 256.788);font-size:1.7rem;line-height:1;cursor:pointer;transition:color .2s}
+    .review-close:hover{color:oklch(0.984 0.003 247.858)}
+    .review-modal-card h3{font-size:1.35rem;margin:.3rem 0 20px}
+    .review-field{display:block;margin-bottom:15px}
+    .review-field .flabel{display:block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:oklch(0.704 0.04 256.788);margin-bottom:7px}
+    .review-field input,.review-field textarea{width:100%;background:oklch(0.1 0.015 265);border:1px solid oklch(1 0 0/.14);border-radius:11px;padding:12px 14px;color:oklch(0.984 0.003 247.858);font:inherit;font-size:.95rem;outline:none;transition:border-color .2s}
+    .review-field input:focus,.review-field textarea:focus{border-color:oklch(0.984 0.003 247.858)}
+    .review-field textarea{resize:vertical;min-height:120px}
+    .review-msg{font-size:.86rem;margin-top:12px;min-height:1.3em;color:oklch(0.704 0.04 256.788)}
+    .review-msg.ok{color:oklch(0.87 0.13 155)}
+    .review-msg.err{color:oklch(0.78 0.14 25)}
+    .review-hp{position:absolute!important;left:-9999px!important}
   </style>
 </head>
 <body>
@@ -198,7 +216,7 @@
       </div>
       <p class="hero-desc">I build <em>high-converting SaaS platforms</em> and digital ecosystems that help brands maximize revenue and scale operations.</p>
       <div class="hero-btns">
-        <a href="mailto:huzaifasaleh643@gmail.com" class="btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        <a href="mailto:obstiansyndicate@gmail.com" class="btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
         <a href="#work" class="btn btn-outline">View My Work</a>
       </div>
     </div>
@@ -390,6 +408,9 @@
           </div>
         </div>
       </div>
+      <div class="reviews-cta slide-left" style="transition-delay:.35s">
+        <button type="button" class="btn btn-primary" id="openReview">Leave a Review <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
+      </div>
     </section>
   </div>
   <div class="gradient-line"></div>
@@ -398,17 +419,17 @@
       <p class="section-label slide-left">Contact</p>
       <h2 class="section-title slide-left" style="transition-delay:.1s"><span class="letter" style="--i:0">L</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">t</span><span class="letter" style="--i:3">'</span><span class="letter" style="--i:4">s</span><span class="letter" style="--i:5">&nbsp;</span><span class="letter" style="--i:6">W</span><span class="letter" style="--i:7">o</span><span class="letter" style="--i:8">r</span><span class="letter" style="--i:9">k</span><span class="letter" style="--i:10">&nbsp;</span><span class="letter" style="--i:11">T</span><span class="letter" style="--i:12">o</span><span class="letter" style="--i:13">g</span><span class="letter" style="--i:14">e</span><span class="letter" style="--i:15">t</span><span class="letter" style="--i:16">h</span><span class="letter" style="--i:17">e</span><span class="letter" style="--i:18">r</span></h2>
       <div class="contact-items slide-left" style="transition-delay:.15s">
-        <a href="mailto:huzaifasaleh643@gmail.com" class="contact-item">
+        <a href="mailto:obstiansyndicate@gmail.com" class="contact-item">
           <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M22 6L12 13 2 6"></path><path d="M2 6v12a2 2 0 002 2h16a2 2 0 002-2V6"></path></svg></span>
-          huzaifasaleh643@gmail.com
+          obstiansyndicate@gmail.com
         </a>
-        <a href="tel:03379694544" class="contact-item">
+        <a href="tel:03264727168" class="contact-item">
           <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg></span>
-          03379694544
+          03264727168
         </a>
       </div>
       <div class="social-links slide-left" style="transition-delay:.2s">
-        <a href="https://wa.me/923379694544" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
+        <a href="https://wa.me/923264727168" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
         <a href="https://twitter.com/HuzaifaSal5047" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
         <a href="https://www.facebook.com/profile.php?id=61590149835408" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
         <a href="https://github.com/huzaifasaleh643-bot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
@@ -420,11 +441,32 @@
       <h2 class="section-title reveal">Have a SaaS idea? Let's turn it into a real product.</h2>
       <p class="cta-text reveal" style="transition-delay:.1s;margin-left:auto;margin-right:auto">If you want to build something great, reach out and let's make it happen.</p>
       <div class="cta-btn reveal" style="transition-delay:.2s">
-        <a href="mailto:huzaifasaleh643@gmail.com" class="btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        <a href="mailto:obstiansyndicate@gmail.com" class="btn btn-primary">Start Your Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
       </div>
     </div>
   </section>
   <footer>© 2026 Huzaifa — SaaS Developer</footer>
+  <div class="review-modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle">
+    <div class="review-modal-card">
+      <button type="button" class="review-close" id="reviewClose" aria-label="Close">&times;</button>
+      <p class="section-label">Client reviews</p>
+      <h3 id="reviewTitle">Leave a Review</h3>
+      <form id="reviewForm" novalidate>
+        <label class="review-field"><span class="flabel">Your name *</span>
+          <input type="text" name="name" maxlength="60" required placeholder="e.g. Ahmed Khan">
+        </label>
+        <label class="review-field"><span class="flabel">Company / Role</span>
+          <input type="text" name="role" maxlength="60" placeholder="e.g. Fiverr Client">
+        </label>
+        <label class="review-field"><span class="flabel">Your review *</span>
+          <textarea name="text" maxlength="700" required placeholder="How was your experience working with me?"></textarea>
+        </label>
+        <input type="text" name="website" class="review-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Submit Review</button>
+        <p class="review-msg" id="reviewMsg"></p>
+      </form>
+    </div>
+  </div>
   <script>
     const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}})},{threshold:.1});
     document.querySelectorAll('.reveal,.slide-left').forEach(e=>observer.observe(e));
@@ -432,6 +474,52 @@
     const h=document.querySelector('header');window.addEventListener('scroll',()=>{h.style.borderBottomColor=window.scrollY>8?'oklch(1 0 0/.1)':'transparent'},{passive:true});
     document.addEventListener('touchend',()=>{document.querySelectorAll('.letter,.skill-item,.skill-highlight').forEach(e=>{e.blur()})},{passive:true});
     (function(){const t=document.querySelector('.carousel-track'),s=t?.querySelectorAll('.carousel-slide'),d=document.querySelector('.carousel-dots'),p=document.querySelector('.carousel-prev'),n=document.querySelector('.carousel-next');if(!s?.length)return;let i=0;function g(){s.forEach((e,j)=>{e.classList.toggle('active',j===i)});d?.querySelectorAll('.carousel-dot').forEach((e,j)=>{e.classList.toggle('active',j===i)})}s[0]?.classList.add('active');s.forEach((e,j)=>{const o=document.createElement('button');o.className='carousel-dot'+(j===0?' active':'');o.addEventListener('click',()=>{i=j;g()});d?.appendChild(o)});p?.addEventListener('click',()=>{i=i>0?i-1:s.length-1;g()});n?.addEventListener('click',()=>{i=i<s.length-1?i+1:0;g()})})();
+    /* ---- Client reviews (Cloudflare Worker + KV) ---- */
+    const REVIEWS_API='https://portfolio-reviews.hz-web.workers.dev';
+    (function(){
+      const grid=document.querySelector('.testimonials-grid');
+      if(!grid)return;
+      fetch(REVIEWS_API+'/api/reviews').then(function(r){return r.json()}).then(function(d){
+        (d.reviews||[]).forEach(function(rv){
+          const card=document.createElement('div');card.className='testimonial-card slide-left';
+          const t=document.createElement('div');t.className='testimonial-text';t.textContent='\u201C'+rv.text+'\u201D';
+          const a=document.createElement('div');a.className='testimonial-author';
+          const av=document.createElement('div');av.className='testimonial-avatar';av.textContent=(rv.name||'?').trim().charAt(0).toUpperCase();
+          const info=document.createElement('div');
+          const nm=document.createElement('div');nm.className='testimonial-name';nm.textContent=rv.name;
+          const rl=document.createElement('div');rl.className='testimonial-role';rl.textContent=rv.role||'Client';
+          info.appendChild(nm);info.appendChild(rl);
+          a.appendChild(av);a.appendChild(info);
+          card.appendChild(t);card.appendChild(a);
+          grid.appendChild(card);
+          observer.observe(card);
+        });
+      }).catch(function(){});
+    })();
+    (function(){
+      const modal=document.getElementById('reviewModal');
+      const open=document.getElementById('openReview');
+      if(!modal||!open)return;
+      const close=document.getElementById('reviewClose');
+      const form=document.getElementById('reviewForm');
+      const msg=document.getElementById('reviewMsg');
+      function hide(){modal.classList.remove('open');document.body.style.overflow=''}
+      open.addEventListener('click',function(){modal.classList.add('open');document.body.style.overflow='hidden';msg.textContent='';msg.className='review-msg'});
+      close.addEventListener('click',hide);
+      modal.addEventListener('click',function(e){if(e.target===modal)hide()});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))hide()});
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        const fd=new FormData(form);
+        const payload={name:fd.get('name'),role:fd.get('role'),text:fd.get('text'),website:fd.get('website')};
+        msg.className='review-msg';msg.textContent='Sending...';
+        fetch(REVIEWS_API+'/api/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+          .then(function(r){return r.json()}).then(function(d){
+            if(d.ok){msg.className='review-msg ok';msg.textContent='Thank you! Your review will appear here once approved.';form.reset();setTimeout(hide,2400);}
+            else{msg.className='review-msg err';msg.textContent=d.error||'Something went wrong.';}
+          }).catch(function(){msg.className='review-msg err';msg.textContent='Connection error — please try again.';});
+      });
+    })();
   </script>
 </body>
 </html>
