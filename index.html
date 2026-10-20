@@ -182,6 +182,14 @@
     .review-msg.ok{color:oklch(0.87 0.13 155)}
     .review-msg.err{color:oklch(0.78 0.14 25)}
     .review-hp{position:absolute!important;left:-9999px!important}
+    /* ---- Testimonials marquee (auto-scroll, pause on hover/touch) ---- */
+    .testi-marquee{position:relative;overflow:hidden;margin-top:48px;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+    .testi-track{display:flex;width:max-content;animation:testi-scroll 45s linear infinite}
+    .testi-marquee:hover .testi-track,.testi-marquee.paused .testi-track{animation-play-state:paused}
+    @keyframes testi-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .testi-track .testimonial-card{flex:0 0 340px;margin-right:24px}
+    @media(max-width:640px){.testi-track .testimonial-card{flex:0 0 268px}}
+    @media(prefers-reduced-motion:reduce){.testi-track{animation:none}}
     .star-picker{display:flex;gap:6px;margin-top:2px}
     .star-picker .star{background:none;border:0;padding:0;font-size:1.75rem;line-height:1;cursor:pointer;color:oklch(1 0 0/.18);transition:color .15s,transform .15s}
     .star-picker .star.on{color:oklch(0.85 0.14 85)}
@@ -498,6 +506,24 @@
     (function(){
       const grid=document.querySelector('.testimonials-grid');
       if(!grid)return;
+      function buildMarquee(){
+        const cards=Array.prototype.slice.call(grid.querySelectorAll('.testimonial-card'));
+        if(!cards.length)return;
+        const mq=document.createElement('div');mq.className='testi-marquee';
+        const track=document.createElement('div');track.className='testi-track';
+        cards.forEach(function(c){c.classList.add('in');track.appendChild(c)});
+        cards.forEach(function(c){
+          const k=c.cloneNode(true);k.setAttribute('aria-hidden','true');
+          k.querySelectorAll('.review-del').forEach(function(b){b.remove()});
+          track.appendChild(k);
+        });
+        mq.appendChild(track);
+        grid.parentNode.replaceChild(mq,grid);
+        requestAnimationFrame(function(){track.style.animationDuration=Math.max(30,Math.round(track.scrollWidth/2/45))+'s'});
+        mq.addEventListener('touchstart',function(){mq.classList.add('paused')},{passive:true});
+        mq.addEventListener('touchend',function(){mq.classList.remove('paused')},{passive:true});
+        mq.addEventListener('touchcancel',function(){mq.classList.remove('paused')},{passive:true});
+      }
       fetch(REVIEWS_API+'/api/reviews').then(function(r){return r.json()}).then(function(d){
         (d.reviews||[]).forEach(function(rv){
           const card=document.createElement('div');card.className='testimonial-card slide-left';
@@ -527,7 +553,7 @@
           grid.appendChild(card);
           observer.observe(card);
         });
-      }).catch(function(){});
+      }).catch(function(){}).finally(buildMarquee);
     })();
     (function(){
       const modal=document.getElementById('reviewModal');
